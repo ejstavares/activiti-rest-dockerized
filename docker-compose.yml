@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+
+  activiti:
+    container_name: activiti-rest
+    build: .
+    image: $ACTIVITI_IMAGE
+    tty: true
+    env_file: .env
+    ports:
+      - "${ACTIVITI_BIND_PORT}:8080"
+     #we are going to save our database data in our file system                                     
+     #using these named volumes will default to somewhere in docker  files on your system
+    volumes: 
+      - activiti-volume:/usr/local/tomee/
+    networks:
+      - activiti-network
+    security_opt:
+      - seccomp:unconfined
+      
+networks: 
+  activiti-network:
+    external: true
+    name: activiti-network
+volumes:
+  activiti-volume:
+    name: activiti-volume
