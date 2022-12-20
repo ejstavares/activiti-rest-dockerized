@@ -1,4 +1,8 @@
 # activiti-rest-dockerized
+**VERSION:** activiti-6.0.0
+
+Tomee 8.0.6 - Apache Tomcat/9.0.68
+
 ## Dockerfile to build an Activiti BPM container image.
 
 1- Execute compose file AND build Docker image for activit based on jre-8-tomee-8.0.6-plus
@@ -9,7 +13,7 @@
 
 `http://<ip of docker host>:<container's 8888 port>/activiti-rest`
 
-3- (optional) Set PostgreSQL config - Copy .jar and db.properties files via follow script:
+3- (optional) Set PostgreSQL config - Copy db.properties files via follow script:
 
 `bash scripts/01-copy-postgres-jar.sh`
 
