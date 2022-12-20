@@ -1,11 +1,12 @@
 version: '3.4'
 
-services:
+services: 
   activiti-rest:
     container_name: activiti-rest
     build: .
     image: $ACTIVITI_IMAGE
     tty: true
+    restart: unless-stopped
     ports:
       - "${ACTIVITI_BIND_PORT}:8080"
      #we are going to save our database data in our file system                                     
